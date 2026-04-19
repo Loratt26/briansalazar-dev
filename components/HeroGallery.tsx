@@ -17,6 +17,10 @@ export interface GalleryImage {
   src: string;
   /** Matches caseStudyData.{slug}.gallery.{key} in messages. */
   key: string;
+  /** Natural pixel width — defaults to a Shopify-style tall ratio. */
+  width?: number;
+  /** Natural pixel height — defaults to a Shopify-style tall ratio. */
+  height?: number;
 }
 
 interface HeroGalleryProps {
@@ -25,13 +29,15 @@ interface HeroGalleryProps {
   images: GalleryImage[];
 }
 
-const NATURAL_W = 1200;
-const NATURAL_H = 4000;
+const DEFAULT_W = 1200;
+const DEFAULT_H = 4000;
 
 interface ResolvedImage {
   src: string;
   label: string;
   alt: string;
+  width: number;
+  height: number;
 }
 
 export function HeroGallery({ slug, images }: HeroGalleryProps) {
@@ -47,6 +53,8 @@ export function HeroGallery({ slug, images }: HeroGalleryProps) {
         src: img.src,
         label: tCs(`${img.key}.label`),
         alt: tCs(`${img.key}.alt`),
+        width: img.width ?? DEFAULT_W,
+        height: img.height ?? DEFAULT_H,
       })),
     [images, tCs]
   );
@@ -119,7 +127,7 @@ export function HeroGallery({ slug, images }: HeroGalleryProps) {
         })}
       </div>
 
-      <div className="relative mt-2 min-h-[600px] overflow-hidden rounded-lg border border-border bg-card">
+      <div className="relative mt-2 max-h-[720px] overflow-hidden rounded-lg border border-border bg-card transition-[height] duration-300 ease-out">
         {resolved.map((img, idx) => {
           const isActive = idx === activeIndex;
           return (
@@ -130,10 +138,10 @@ export function HeroGallery({ slug, images }: HeroGalleryProps) {
               aria-labelledby={`gallery-tab-${idx}`}
               hidden={!isActive}
               className={cn(
-                "absolute inset-0 max-h-[600px] overflow-y-auto transition-opacity duration-200 ease-out",
+                "transition-opacity duration-200 ease-out",
                 isActive
-                  ? "opacity-100"
-                  : "opacity-0 pointer-events-none"
+                  ? "relative max-h-[720px] overflow-y-auto opacity-100"
+                  : "absolute inset-0 opacity-0 pointer-events-none"
               )}
             >
               <button
@@ -146,8 +154,8 @@ export function HeroGallery({ slug, images }: HeroGalleryProps) {
                 <Image
                   src={img.src}
                   alt={img.alt}
-                  width={NATURAL_W}
-                  height={NATURAL_H}
+                  width={img.width}
+                  height={img.height}
                   sizes="(min-width: 768px) 720px, 100vw"
                   className="block h-auto w-full object-contain object-top"
                   priority={idx === 0}
@@ -296,8 +304,8 @@ function Lightbox({ images, index, onClose, onPrev, onNext }: LightboxProps) {
         <Image
           src={active.src}
           alt={active.alt}
-          width={NATURAL_W}
-          height={NATURAL_H}
+          width={active.width}
+          height={active.height}
           sizes="95vw"
           className="block h-auto w-auto max-w-[95vw]"
         />

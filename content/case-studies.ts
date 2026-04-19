@@ -9,7 +9,10 @@ export type HeroAsset =
   | {
       type: "gallery";
       // `key` matches caseStudyData.{slug}.gallery.{key} in messages.
-      images: Array<{ src: string; key: string }>;
+      // `width`/`height` are natural pixel dims — used by Next/Image for
+      // intrinsic sizing and to size the gallery wrapper to the image's
+      // aspect. If omitted, defaults to a Shopify-style tall ratio.
+      images: Array<{ src: string; key: string; width?: number; height?: number }>;
     }
   | { type: "iframe"; src: string; title: string };
 
@@ -79,11 +82,11 @@ export const caseStudies: CaseStudy[] = [
     heroAsset: {
       type: "gallery",
       images: [
-        { src: "/images/case-studies/school-attendance-system/home.webp", key: "home" },
-        { src: "/images/case-studies/school-attendance-system/dashboard.webp", key: "dashboard" },
-        { src: "/images/case-studies/school-attendance-system/manual-record.webp", key: "manual-record" },
-        { src: "/images/case-studies/school-attendance-system/reports.webp", key: "reports" },
-        { src: "/images/case-studies/school-attendance-system/alerts.webp", key: "alerts" },
+        { src: "/images/case-studies/school-attendance-system/home.webp", key: "home", width: 1600, height: 765 },
+        { src: "/images/case-studies/school-attendance-system/dashboard.webp", key: "dashboard", width: 1600, height: 765 },
+        { src: "/images/case-studies/school-attendance-system/manual-record.webp", key: "manual-record", width: 1600, height: 765 },
+        { src: "/images/case-studies/school-attendance-system/reports.webp", key: "reports", width: 1600, height: 765 },
+        { src: "/images/case-studies/school-attendance-system/alerts.webp", key: "alerts", width: 1600, height: 765 },
       ],
     },
     stack: ["Python", "Django", "PostgreSQL", "Docker", "Railway"],
