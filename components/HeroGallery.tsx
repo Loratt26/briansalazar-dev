@@ -99,29 +99,46 @@ export function HeroGallery({ images }: HeroGalleryProps) {
         })}
       </div>
 
-      {/* Scrollable image panel */}
-      <div
-        role="tabpanel"
-        id={`gallery-panel-${activeIndex}`}
-        aria-labelledby={`gallery-tab-${activeIndex}`}
-        className="mt-2 overflow-y-auto rounded-lg border border-border bg-card max-h-[600px]"
-      >
-        <button
-          type="button"
-          onClick={openLightbox}
-          aria-label={`Zoom into ${active.label}`}
-          className={cn("block w-full cursor-zoom-in", focusRing)}
-        >
-          <Image
-            src={active.src}
-            alt={active.alt}
-            width={NATURAL_W}
-            height={NATURAL_H}
-            sizes="(min-width: 768px) 720px, 100vw"
-            className="block h-auto w-full"
-            priority={activeIndex === 0}
-          />
-        </button>
+      {/* Stacked panels — all images render at once so tab switching is
+          instant. Inactive panels are visually hidden and inert. */}
+      <div className="relative mt-2 min-h-[600px] overflow-hidden rounded-lg border border-border bg-card">
+        {images.map((img, idx) => {
+          const isActive = idx === activeIndex;
+          return (
+            <div
+              key={img.src}
+              role="tabpanel"
+              id={`gallery-panel-${idx}`}
+              aria-labelledby={`gallery-tab-${idx}`}
+              hidden={!isActive}
+              className={cn(
+                "absolute inset-0 max-h-[600px] overflow-y-auto transition-opacity duration-200 ease-out",
+                isActive
+                  ? "opacity-100"
+                  : "opacity-0 pointer-events-none"
+              )}
+            >
+              <button
+                type="button"
+                onClick={openLightbox}
+                aria-label={`Zoom into ${img.label}`}
+                tabIndex={isActive ? 0 : -1}
+                className={cn("block w-full cursor-zoom-in", focusRing)}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  width={NATURAL_W}
+                  height={NATURAL_H}
+                  sizes="(min-width: 768px) 720px, 100vw"
+                  className="block h-auto w-full object-contain object-top"
+                  priority={idx === 0}
+                  loading={idx === 0 ? undefined : "eager"}
+                />
+              </button>
+            </div>
+          );
+        })}
       </div>
 
       <p className="mt-2 font-mono text-[11px] uppercase tracking-widest text-muted-strong">

@@ -41,7 +41,7 @@ export const caseStudies: CaseStudy[] = [
     category: "Product Demo · Shopify",
     year: "2025",
     status: "Live",
-    thumbnail: "/images/case-studies/shopify-demo-store/thumb-webdemo.png",
+    thumbnail: "/images/case-studies/shopify-demo-store/thumb-webdemo.webp",
     heroAsset: {
       type: "gallery",
       images: [

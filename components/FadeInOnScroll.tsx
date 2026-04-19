@@ -52,7 +52,7 @@ export function FadeInOnScroll({
       ref={ref}
       data-in-view={inView ? "true" : "false"}
       className={cn(
-        "opacity-0 translate-y-4 transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+        "opacity-0 translate-y-4 transition-[opacity,transform] duration-500 ease-out",
         "data-[in-view=true]:opacity-100 data-[in-view=true]:translate-y-0",
         "motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:transition-none",
         className
