@@ -110,9 +110,9 @@
       "oneLiner": "Construí una tienda demo completa en Shopify desde cero para mostrar una nueva app de Penida.io en ventas y onboarding.",
       "category": "Demo de Producto · Shopify",
       "status": "En producción",
-      "problem": "Lanzar una nueva app de Shopify significaba que los equipos de ventas y onboarding necesitaban un entorno funcional para mostrar a los merchants qué hace la app en contexto — no slides, no mockups, una tienda real con páginas de producto reales, carrito real, checkout real. No teníamos una.",
+      "problem": "Lanzar una nueva app de Shopify significaba que los equipos de ventas y onboarding necesitaban un entorno funcional para mostrar a los merchants qué hace la app en contexto — ni slides, ni mockups, una tienda real con páginas de producto reales, carrito real, checkout real. No teníamos una.",
       "approach": "Lideré la construcción de la tienda demo de principio a fin. Eso significó configurar el theme de Shopify, diseñar el catálogo de productos, estructurar las colecciones, escribir el contenido, configurar el checkout e integrar nuestra app para que cada feature que sale al aire pueda mostrarse en vivo. Usé mis cinco años trabajando dentro de tiendas Shopify para saltarme el ramp-up usual.",
-      "solution": "Una tienda demo completa, dark-themed y pulida, con la nueva app configurada y visible en todo el customer journey. La tienda la usa el equipo en llamadas de ventas, sesiones de onboarding y QA interno.",
+      "solution": "Una tienda demo completa, oscura y pulida, con la nueva app configurada y visible en todo el customer journey. La tienda la usa el equipo en llamadas de ventas, sesiones de onboarding y QA interno.",
       "result": [
         "Activo en vivo usado para demos de ventas y onboarding desde el día uno.",
         "Reducí la dependencia de ingeniería para entornos demo.",
@@ -145,7 +145,7 @@
       "result": [
         "Validado con el CTO usando evidencia funcional, no mockups.",
         "El feature fue aceptado en el roadmap.",
-        "Reduje el loop de discusión de \"¿podemos construir esto?\" a \"¿cómo lo enviamos?\"."
+        "Reduje el loop de discusión de \"¿podemos construir esto?\" a \"¿cómo lo lanzamos?\"."
       ],
       "role": "Identificación de patrones desde el feedback de soporte, diseño de UX, prototipo funcional",
       "collaborators": "CTO (revisión y decisión final del roadmap)"
@@ -155,8 +155,8 @@
       "oneLiner": "Rediseñé un flujo existente de edición de disponibilidad después de que el feedback de los clientes apuntara a una fricción consistente, y entregué un prototipo funcional para ingeniería.",
       "category": "Diseño de Producto · Prototipo",
       "status": "Prototipo entregado",
-      "problem": "El editor de disponibilidad existente había acumulado fricción a lo largo de varias iteraciones. Los clientes reportaban confusión sobre cómo se combinaban las reglas de disponibilidad, y los tickets de soporte seguían cayendo en los mismos bordes. En lugar de parchar, hacía falta un rework limpio.",
-      "approach": "Mapeé los puntos de fricción desde la data de soporte, esbocé un modelo mental más simple y luego construí un prototipo funcional en React con Vite para hacer el rediseño tangible. El prototipo le permite a ingeniería ver el flujo funcionar de principio a fin antes de comprometer tiempo de implementación.",
+      "problem": "El editor de disponibilidad existente había acumulado fricción a lo largo de varias iteraciones. Los clientes reportaban confusión sobre cómo se combinaban las reglas de disponibilidad, y los tickets de soporte seguían cayendo en los mismos casos límite. En lugar de parchar, hacía falta un rework limpio.",
+      "approach": "Mapeé los puntos de fricción desde la data de soporte, esbocé un modelo mental más simple y luego construí un prototipo funcional en React con Vite para hacer el rediseño tangible. El prototipo le permite a ingeniería ver el flujo funcionar de principio a fin antes de invertir tiempo de implementación.",
       "solution": "Un editor de disponibilidad rediseñado con una jerarquía de reglas más clara, mejor feedback visual cuando hay solapamientos de disponibilidad, y un camino más simple para los casos de uso más comunes.",
       "result": [
         "Prototipo funcional entregado a ingeniería como referencia del rediseño.",
@@ -170,7 +170,7 @@
       "oneLiner": "Un sistema local de control de asistencia que construí, vendí y desplegué para un colegio privado en Lima — con reportes y alertas de tardanza.",
       "category": "Freelance · Producto Construido",
       "status": "Vendido y en producción",
-      "problem": "Un colegio privado necesitaba una forma de controlar la asistencia del personal de manera confiable, generar reportes mensuales para RR.HH. y exponer patrones de tardanza de forma automática. Su proceso existente era manual y propenso a errores.",
+      "problem": "Un colegio privado necesitaba una forma de controlar la asistencia del personal de manera confiable, generar reportes mensuales para RR.HH. y detectar patrones de tardanza de forma automática. Su proceso existente era manual y propenso a errores.",
       "approach": "Levanté los requerimientos directamente con la administración del colegio, diseñé el modelo de datos, construí el sistema y manejé el despliegue dentro de su red local. Lideré el ciclo completo desde la conversación comercial hasta la entrega a producción.",
       "solution": "Un sistema de asistencia self-hosted que:",
       "solutionPoints": [
@@ -184,7 +184,7 @@
         "Reemplazó el proceso manual.",
         "Actualmente en producción en el colegio."
       ],
-      "role": "Constructor único — requerimientos, diseño, desarrollo, despliegue"
+      "role": "Solo — requerimientos, diseño, desarrollo, despliegue"
     }
   }
 }
