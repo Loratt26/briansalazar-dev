@@ -1,8 +1,6 @@
-"use client";
-
 import { Users, Compass, Hammer, type LucideIcon } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
 import { Card } from "@/components/ui/card";
+import { FadeInOnScroll } from "@/components/FadeInOnScroll";
 
 interface Pillar {
   icon: LucideIcon;
@@ -33,23 +31,13 @@ const PILLARS: Pillar[] = [
 ];
 
 export function WhatIDo() {
-  const reduceMotion = useReducedMotion();
-
   return (
     <section
       aria-labelledby="what-i-do-heading"
       className="relative py-16 md:py-24"
     >
       <div className="mx-auto max-w-wide px-6 md:px-8">
-        <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{
-            duration: 0.5,
-            ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
-          }}
-        >
+        <FadeInOnScroll>
           <h2
             id="what-i-do-heading"
             className="text-h2 font-semibold tracking-tight"
@@ -76,7 +64,7 @@ export function WhatIDo() {
               </li>
             ))}
           </ul>
-        </motion.div>
+        </FadeInOnScroll>
       </div>
     </section>
   );
