@@ -10,14 +10,9 @@ const LOAD_TIMEOUT_MS = 10000;
 interface HeroIframeProps {
   src: string;
   title: string;
-  aspectRatio?: string;
 }
 
-export default function HeroIframe({
-  src,
-  title,
-  aspectRatio = "4 / 3",
-}: HeroIframeProps) {
+export default function HeroIframe({ src, title }: HeroIframeProps) {
   const t = useTranslations("HeroIframe");
   const [loaded, setLoaded] = useState(false);
   const [errored, setErrored] = useState(false);
@@ -40,10 +35,7 @@ export default function HeroIframe({
 
   return (
     <div>
-      <div
-        className="relative w-full rounded-lg overflow-hidden border border-border bg-card"
-        style={{ aspectRatio }}
-      >
+      <div className="relative w-full rounded-lg overflow-hidden border border-border bg-card min-h-[640px] md:min-h-[720px]">
         <iframe
           src={src}
           title={title}
@@ -52,7 +44,7 @@ export default function HeroIframe({
           referrerPolicy="no-referrer-when-downgrade"
           sandbox="allow-scripts allow-same-origin allow-forms"
           className={cn(
-            "w-full h-full transition-opacity duration-200",
+            "absolute inset-0 w-full h-full transition-opacity duration-200",
             loaded ? "opacity-100" : "opacity-0"
           )}
         />

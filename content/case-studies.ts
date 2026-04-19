@@ -11,7 +11,7 @@ export type HeroAsset =
       // `key` matches caseStudyData.{slug}.gallery.{key} in messages.
       images: Array<{ src: string; key: string }>;
     }
-  | { type: "iframe"; src: string; title: string; aspectRatio?: string };
+  | { type: "iframe"; src: string; title: string };
 
 export interface CaseStudy {
   slug: string;
@@ -55,7 +55,6 @@ export const caseStudies: CaseStudy[] = [
       type: "iframe",
       src: "https://bulk-services.briansalazar.dev",
       title: "Bulk Services prototype — Cowlendar 5-step wizard",
-      aspectRatio: "4 / 3",
     },
     stack: ["Next.js 14", "TypeScript", "Shopify Admin API", "Tailwind"],
     hasCollaborators: true,

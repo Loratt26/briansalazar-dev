@@ -93,13 +93,7 @@ function HeroAsset({
   }
 
   if (asset.type === "iframe") {
-    return (
-      <HeroIframe
-        src={asset.src}
-        title={asset.title}
-        aspectRatio={asset.aspectRatio}
-      />
-    );
+    return <HeroIframe src={asset.src} title={asset.title} />;
   }
 
   // type === "image" / "video" — TODO: add hero asset (real assets arrive later)
