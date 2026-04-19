@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { caseStudies, type CaseStudy } from "@/content/case-studies";
 import { HeroAssetPlaceholder } from "@/components/HeroAssetPlaceholder";
+import { cn, focusRing } from "@/lib/utils";
 
 interface PageProps {
   params: { slug: string };
@@ -99,7 +100,10 @@ export default function CaseStudyPage({ params }: PageProps) {
       {/* Back link */}
       <Link
         href="/#work"
-        className="inline-flex items-center gap-2 text-sm text-muted hover:text-foreground transition-colors"
+        className={cn(
+          "inline-flex items-center gap-2 text-sm text-muted hover:text-foreground transition-colors",
+          focusRing
+        )}
       >
         <ArrowLeft className="h-4 w-4" strokeWidth={1.75} />
         Back to home
@@ -221,7 +225,10 @@ export default function CaseStudyPage({ params }: PageProps) {
       <div className="mt-24 pt-8 border-t border-border">
         <Link
           href={`/case-studies/${next.slug}`}
-          className="group flex items-center justify-between gap-4 -m-2 p-2 rounded-md transition-colors hover:bg-foreground/[0.02]"
+          className={cn(
+            "group flex items-center justify-between gap-4 -m-2 p-2 rounded-md transition-colors hover:bg-foreground/[0.02]",
+            focusRing
+          )}
         >
           <div className="min-w-0">
             <p className="font-mono text-xs uppercase tracking-widest text-muted-strong">

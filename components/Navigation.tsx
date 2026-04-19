@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, focusRing } from "@/lib/utils";
 
 const NAV_LINKS = [
   { href: "#work", label: "Work" },
@@ -51,7 +51,10 @@ export function Navigation() {
         >
           <a
             href="#top"
-            className="font-mono text-sm tracking-tight text-foreground hover:text-accent transition-colors"
+            className={cn(
+              "font-mono text-sm tracking-tight text-foreground hover:text-accent transition-colors",
+              focusRing
+            )}
           >
             briansalazar
           </a>
@@ -61,7 +64,10 @@ export function Navigation() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-muted hover:text-accent transition-colors"
+                  className={cn(
+                    "text-muted hover:text-accent transition-colors",
+                    focusRing
+                  )}
                 >
                   {link.label}
                 </a>
@@ -75,7 +81,10 @@ export function Navigation() {
             aria-expanded={mobileOpen}
             aria-controls="mobile-nav"
             onClick={() => setMobileOpen(true)}
-            className="md:hidden text-foreground p-2 -mr-2 hover:text-accent transition-colors"
+            className={cn(
+              "md:hidden text-foreground p-2 -mr-2 hover:text-accent transition-colors",
+              focusRing
+            )}
           >
             <Menu className="h-5 w-5" strokeWidth={1.5} />
           </button>
@@ -96,7 +105,10 @@ export function Navigation() {
               type="button"
               aria-label="Close menu"
               onClick={() => setMobileOpen(false)}
-              className="text-foreground p-2 -mr-2 hover:text-accent transition-colors"
+              className={cn(
+                "text-foreground p-2 -mr-2 hover:text-accent transition-colors",
+                focusRing
+              )}
             >
               <X className="h-5 w-5" strokeWidth={1.5} />
             </button>
@@ -107,7 +119,10 @@ export function Navigation() {
                 <a
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-foreground hover:text-accent transition-colors"
+                  className={cn(
+                    "text-foreground hover:text-accent transition-colors",
+                    focusRing
+                  )}
                 >
                   {link.label}
                 </a>
