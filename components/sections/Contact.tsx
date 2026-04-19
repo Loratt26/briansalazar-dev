@@ -34,7 +34,7 @@ export function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="scroll-mt-16 py-20 md:py-32"
+      className="scroll-mt-16 py-12 md:py-20"
     >
       <div className="mx-auto max-w-wide px-6 md:px-8">
         <FadeInOnScroll>

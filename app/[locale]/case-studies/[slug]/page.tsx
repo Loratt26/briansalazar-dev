@@ -186,7 +186,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
       </div>
 
       <section>
-        <h2 className="mt-16 mb-6 text-h2 font-semibold tracking-tight">
+        <h2 className="mt-12 mb-4 text-h2 font-semibold tracking-tight">
           {tDetail("problemHeading")}
         </h2>
         <p className="mb-4 leading-relaxed text-foreground/90 text-pretty">
@@ -195,7 +195,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
       </section>
 
       <section>
-        <h2 className="mt-16 mb-6 text-h2 font-semibold tracking-tight">
+        <h2 className="mt-12 mb-4 text-h2 font-semibold tracking-tight">
           {tDetail("approachHeading")}
         </h2>
         <p className="mb-4 leading-relaxed text-foreground/90 text-pretty">
@@ -213,7 +213,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
       </section>
 
       <section>
-        <h2 className="mt-16 mb-6 text-h2 font-semibold tracking-tight">
+        <h2 className="mt-12 mb-4 text-h2 font-semibold tracking-tight">
           {tDetail("solutionHeading")}
         </h2>
         <p className="mb-4 leading-relaxed text-foreground/90 text-pretty">
@@ -238,7 +238,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
       </section>
 
       <section>
-        <h2 className="mt-16 mb-6 text-h2 font-semibold tracking-tight">
+        <h2 className="mt-12 mb-4 text-h2 font-semibold tracking-tight">
           {tDetail("resultHeading")}
         </h2>
         <ul className="space-y-3">
@@ -259,7 +259,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
       </section>
 
       <section>
-        <h2 className="mt-16 mb-6 text-h2 font-semibold tracking-tight">
+        <h2 className="mt-12 mb-4 text-h2 font-semibold tracking-tight">
           {tDetail("roleStackHeading")}
         </h2>
         <dl className="rounded-lg border border-border bg-card p-6 md:p-7">

@@ -21,7 +21,7 @@ export function WhatIDo() {
   return (
     <section
       aria-labelledby="what-i-do-heading"
-      className="relative py-16 md:py-24"
+      className="relative py-12 md:py-20"
     >
       <div className="mx-auto max-w-wide px-6 md:px-8">
         <FadeInOnScroll>

@@ -51,7 +51,7 @@ export function Hero() {
         }}
       />
 
-      <div className="relative mx-auto flex min-h-[calc(100vh-4rem)] max-w-wide flex-col justify-center px-6 md:px-8 py-24">
+      <div className="relative mx-auto flex min-h-[70vh] md:min-h-[75vh] max-w-wide flex-col justify-center px-6 md:px-8 py-24">
         <motion.div
           variants={container}
           initial="hidden"
