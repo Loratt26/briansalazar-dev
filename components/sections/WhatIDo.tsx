@@ -1,36 +1,23 @@
 import { Users, Compass, Hammer, type LucideIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Card } from "@/components/ui/card";
 import { FadeInOnScroll } from "@/components/FadeInOnScroll";
 
 interface Pillar {
   icon: LucideIcon;
-  title: string;
-  description: string;
+  /** Matches messages key under WhatIDo.{key}. */
+  key: "supportLeadership" | "productContribution" | "building";
 }
 
-// Copy per PORTFOLIO_SPEC.md §6.4 — do not rephrase.
 const PILLARS: Pillar[] = [
-  {
-    icon: Users,
-    title: "Support Leadership",
-    description:
-      "Leading an 11-person customer support team at Penida.io. Building processes, escalation paths, and the feedback loops that turn support into a product input.",
-  },
-  {
-    icon: Compass,
-    title: "Product Contribution",
-    description:
-      "Direct work with the CEO and CTO on roadmap priorities. I synthesize customer feedback into feature proposals and validate them before they reach engineering.",
-  },
-  {
-    icon: Hammer,
-    title: "Building",
-    description:
-      "When a design or flow needs validation, I build functional prototypes. Shipped code that's been reviewed by engineering and turned into production features.",
-  },
+  { icon: Users, key: "supportLeadership" },
+  { icon: Compass, key: "productContribution" },
+  { icon: Hammer, key: "building" },
 ];
 
 export function WhatIDo() {
+  const t = useTranslations("WhatIDo");
+
   return (
     <section
       aria-labelledby="what-i-do-heading"
@@ -42,12 +29,12 @@ export function WhatIDo() {
             id="what-i-do-heading"
             className="text-h2 font-semibold tracking-tight"
           >
-            What I do
+            {t("heading")}
           </h2>
 
           <ul className="mt-12 grid gap-4 md:grid-cols-3 md:gap-6">
-            {PILLARS.map(({ icon: Icon, title, description }) => (
-              <li key={title}>
+            {PILLARS.map(({ icon: Icon, key }) => (
+              <li key={key}>
                 <Card className="h-full p-6 md:p-7">
                   <Icon
                     className="h-5 w-5 text-accent"
@@ -55,10 +42,10 @@ export function WhatIDo() {
                     aria-hidden
                   />
                   <h3 className="mt-5 text-lg font-semibold tracking-tight">
-                    {title}
+                    {t(`${key}.title`)}
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted text-pretty">
-                    {description}
+                    {t(`${key}.description`)}
                   </p>
                 </Card>
               </li>

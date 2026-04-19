@@ -1,12 +1,14 @@
 "use client";
 
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { buttonVariants } from "@/components/ui/button";
 import { profile } from "@/content/profile";
 
 export function Hero() {
+  const t = useTranslations("Hero");
   const reduceMotion = useReducedMotion();
 
   const container: Variants = {
@@ -60,7 +62,7 @@ export function Hero() {
             variants={item}
             className="font-mono text-xs md:text-sm uppercase tracking-widest text-accent"
           >
-            Based in {profile.location}
+            {t("eyebrow")}
           </motion.p>
 
           <motion.h1
@@ -68,18 +70,18 @@ export function Hero() {
             variants={item}
             className="mt-6 text-h1 font-semibold tracking-tight text-balance"
           >
-            {profile.name}
+            {t("name")}
           </motion.h1>
 
           <motion.p
             variants={item}
             className="mt-6 text-h2 font-normal tracking-tight leading-snug text-muted max-w-2xl text-balance"
           >
-            {profile.role}.
+            {t("subtitleLine1")}
             <br />
-            Bridge between customers and product.
+            {t("subtitleLine2")}
             <br />
-            Building prototypes when feedback demands it.
+            {t("subtitleLine3")}
           </motion.p>
 
           <motion.div
@@ -87,10 +89,10 @@ export function Hero() {
             className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-3"
           >
             <Link
-              href="#contact"
+              href="/#contact"
               className={buttonVariants({ variant: "primary", size: "lg" })}
             >
-              Get in touch <ArrowRight className="h-4 w-4" strokeWidth={2} />
+              {t("ctaPrimary")} <ArrowRight className="h-4 w-4" strokeWidth={2} />
             </Link>
             <a
               href={profile.linkedin}
@@ -98,7 +100,7 @@ export function Hero() {
               rel="noopener noreferrer"
               className={buttonVariants({ variant: "ghost", size: "lg" })}
             >
-              View LinkedIn
+              {t("ctaSecondary")}
             </a>
           </motion.div>
         </motion.div>

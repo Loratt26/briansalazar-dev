@@ -1,8 +1,11 @@
+import { useTranslations } from "next-intl";
 import { CaseStudyCard } from "@/components/CaseStudyCard";
 import { FadeInOnScroll } from "@/components/FadeInOnScroll";
 import { caseStudies } from "@/content/case-studies";
 
 export function CaseStudies() {
+  const t = useTranslations("CaseStudies");
+
   return (
     <section
       id="work"
@@ -15,11 +18,9 @@ export function CaseStudies() {
             id="case-studies-heading"
             className="text-h2 font-semibold tracking-tight"
           >
-            Selected work
+            {t("heading")}
           </h2>
-          <p className="mt-2 text-muted">
-            Real problems I&apos;ve owned end-to-end.
-          </p>
+          <p className="mt-2 text-muted">{t("subtitle")}</p>
 
           <ul className="mt-12 grid gap-4 md:grid-cols-2 md:gap-6">
             {caseStudies.map((cs) => (

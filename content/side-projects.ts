@@ -1,24 +1,21 @@
-// Side project content — see PORTFOLIO_SPEC.md §6.6 and §8
+// Locale-agnostic side-project metadata. All translatable prose (title,
+// description, status, badge label, link label) lives in messages/{locale}.json
+// under SideProjects.{key}.
 export interface SideProject {
-  title: string;
-  description: string;
-  status: string;
-  badge?: string;
-  link?: { href: string; label: string };
+  /** Matches messages key under SideProjects.{key}. */
+  key: string;
+  /** Whether the entry has a badge label in messages. */
+  hasBadge?: boolean;
+  /** Optional external link — label comes from messages, href stays here. */
+  linkHref?: string;
 }
 
 export const sideProjects: SideProject[] = [
   {
-    title: "n8n Automations",
-    description:
-      "A growing collection of n8n workflows — from simple triggers to multi-step integrations with APIs, AI, and internal tools. Featured workflow: an audio summarization pipeline that transforms voice recordings into structured written summaries.",
-    status: "Ongoing",
+    key: "n8n-automations",
   },
   {
-    title: "HermanoMayor",
-    description:
-      "A mobile app in React delivering targeted motivational content to a specific audience. Currently in active development — launching soon.",
-    status: "In development",
-    badge: "Coming soon",
+    key: "hermano-mayor",
+    hasBadge: true,
   },
 ];

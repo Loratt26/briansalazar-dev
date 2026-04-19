@@ -3,52 +3,73 @@
 import {
   useCallback,
   useEffect,
+  useMemo,
   useRef,
   useState,
   type KeyboardEvent as ReactKeyboardEvent,
 } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { cn, focusRing } from "@/lib/utils";
 
 export interface GalleryImage {
   src: string;
-  alt: string;
-  label: string;
+  /** Matches caseStudyData.{slug}.gallery.{key} in messages. */
+  key: string;
 }
 
 interface HeroGalleryProps {
+  /** Slug of the parent case study — used to look up translations. */
+  slug: string;
   images: GalleryImage[];
 }
 
 const NATURAL_W = 1200;
 const NATURAL_H = 4000;
 
-export function HeroGallery({ images }: HeroGalleryProps) {
+interface ResolvedImage {
+  src: string;
+  label: string;
+  alt: string;
+}
+
+export function HeroGallery({ slug, images }: HeroGalleryProps) {
+  const tg = useTranslations("HeroGallery");
+  const tCs = useTranslations(`caseStudyData.${slug}.gallery`);
   const [activeIndex, setActiveIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
 
+  const resolved: ResolvedImage[] = useMemo(
+    () =>
+      images.map((img) => ({
+        src: img.src,
+        label: tCs(`${img.key}.label`),
+        alt: tCs(`${img.key}.alt`),
+      })),
+    [images, tCs]
+  );
+
   const openLightbox = useCallback(() => setLightboxOpen(true), []);
   const closeLightbox = useCallback(() => setLightboxOpen(false), []);
   const next = useCallback(
-    () => setActiveIndex((i) => (i + 1) % images.length),
-    [images.length]
+    () => setActiveIndex((i) => (i + 1) % resolved.length),
+    [resolved.length]
   );
   const prev = useCallback(
-    () => setActiveIndex((i) => (i - 1 + images.length) % images.length),
-    [images.length]
+    () => setActiveIndex((i) => (i - 1 + resolved.length) % resolved.length),
+    [resolved.length]
   );
 
-  const active = images[activeIndex];
+  const active = resolved[activeIndex];
   if (!active) return null;
 
-  // Tab arrow-key navigation between segmented control buttons.
   const onTabKeyDown = (e: ReactKeyboardEvent<HTMLButtonElement>, idx: number) => {
     if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
       e.preventDefault();
       const dir = e.key === "ArrowRight" ? 1 : -1;
-      const nextIdx = (idx + dir + images.length) % images.length;
+      const nextIdx = (idx + dir + resolved.length) % resolved.length;
       setActiveIndex(nextIdx);
       tabRefs.current[nextIdx]?.focus();
     }
@@ -56,13 +77,12 @@ export function HeroGallery({ images }: HeroGalleryProps) {
 
   return (
     <div>
-      {/* Segmented control */}
       <div
         role="tablist"
-        aria-label="Demo store screens"
+        aria-label={tg("tablistAriaLabel")}
         className="-mx-2 flex items-center gap-1 overflow-x-auto pb-2 pt-1 px-2"
       >
-        {images.map((img, idx) => {
+        {resolved.map((img, idx) => {
           const isActive = idx === activeIndex;
           return (
             <button
@@ -99,10 +119,8 @@ export function HeroGallery({ images }: HeroGalleryProps) {
         })}
       </div>
 
-      {/* Stacked panels — all images render at once so tab switching is
-          instant. Inactive panels are visually hidden and inert. */}
       <div className="relative mt-2 min-h-[600px] overflow-hidden rounded-lg border border-border bg-card">
-        {images.map((img, idx) => {
+        {resolved.map((img, idx) => {
           const isActive = idx === activeIndex;
           return (
             <div
@@ -121,7 +139,7 @@ export function HeroGallery({ images }: HeroGalleryProps) {
               <button
                 type="button"
                 onClick={openLightbox}
-                aria-label={`Zoom into ${img.label}`}
+                aria-label={tg("zoomLabel", { label: img.label })}
                 tabIndex={isActive ? 0 : -1}
                 className={cn("block w-full cursor-zoom-in", focusRing)}
               >
@@ -142,12 +160,12 @@ export function HeroGallery({ images }: HeroGalleryProps) {
       </div>
 
       <p className="mt-2 font-mono text-[11px] uppercase tracking-widest text-muted-strong">
-        Click to zoom · Scroll to explore
+        {tg("hint")}
       </p>
 
       {lightboxOpen && (
         <Lightbox
-          images={images}
+          images={resolved}
           index={activeIndex}
           onClose={closeLightbox}
           onPrev={prev}
@@ -159,7 +177,7 @@ export function HeroGallery({ images }: HeroGalleryProps) {
 }
 
 interface LightboxProps {
-  images: GalleryImage[];
+  images: ResolvedImage[];
   index: number;
   onClose: () => void;
   onPrev: () => void;
@@ -167,11 +185,11 @@ interface LightboxProps {
 }
 
 function Lightbox({ images, index, onClose, onPrev, onNext }: LightboxProps) {
+  const tg = useTranslations("HeroGallery");
   const closeRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   const active = images[index];
 
-  // Body scroll lock + keyboard handlers + initial focus + focus trap.
   useEffect(() => {
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -194,7 +212,6 @@ function Lightbox({ images, index, onClose, onPrev, onNext }: LightboxProps) {
         return;
       }
       if (e.key === "Tab") {
-        // Focus trap: keep focus inside the dialog.
         const root = dialogRef.current;
         if (!root) return;
         const focusables = root.querySelectorAll<HTMLElement>(
@@ -226,9 +243,8 @@ function Lightbox({ images, index, onClose, onPrev, onNext }: LightboxProps) {
       ref={dialogRef}
       role="dialog"
       aria-modal="true"
-      aria-label={`${active.label} — full size`}
+      aria-label={tg("lightboxAriaLabel", { label: active.label })}
       onClick={(e) => {
-        // Close when clicking the backdrop, not the image itself.
         if (e.target === e.currentTarget) onClose();
       }}
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 sm:p-8"
@@ -237,7 +253,7 @@ function Lightbox({ images, index, onClose, onPrev, onNext }: LightboxProps) {
         ref={closeRef}
         type="button"
         onClick={onClose}
-        aria-label="Close"
+        aria-label={tg("close")}
         className={cn(
           "absolute top-4 right-4 z-10 rounded-md bg-black/40 p-2 text-foreground hover:text-accent transition-colors",
           focusRing
@@ -251,7 +267,7 @@ function Lightbox({ images, index, onClose, onPrev, onNext }: LightboxProps) {
           <button
             type="button"
             onClick={onPrev}
-            aria-label="Previous image"
+            aria-label={tg("previousImage")}
             className={cn(
               "absolute left-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex items-center justify-center rounded-full bg-black/40 p-2 text-foreground hover:text-accent transition-colors",
               focusRing
@@ -262,7 +278,7 @@ function Lightbox({ images, index, onClose, onPrev, onNext }: LightboxProps) {
           <button
             type="button"
             onClick={onNext}
-            aria-label="Next image"
+            aria-label={tg("nextImage")}
             className={cn(
               "absolute right-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex items-center justify-center rounded-full bg-black/40 p-2 text-foreground hover:text-accent transition-colors",
               focusRing
@@ -273,7 +289,6 @@ function Lightbox({ images, index, onClose, onPrev, onNext }: LightboxProps) {
         </>
       )}
 
-      {/* Click on the image area shouldn't close — wrap so backdrop click works only outside. */}
       <div
         className="relative flex max-h-[95vh] max-w-[95vw] items-start justify-center overflow-y-auto rounded-md"
         onClick={(e) => e.stopPropagation()}

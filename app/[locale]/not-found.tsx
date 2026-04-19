@@ -1,20 +1,22 @@
-import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { buttonVariants } from "@/components/ui/button";
 import { cn, focusRing } from "@/lib/utils";
 
 export default function NotFound() {
+  const t = useTranslations("NotFound");
+
   return (
     <section className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-wide flex-col items-center justify-center px-6 md:px-8 py-24 text-center">
       <p className="font-mono text-xs uppercase tracking-widest text-accent">
-        404 — Page not found
+        {t("eyebrow")}
       </p>
       <h1 className="mt-6 text-h1 font-semibold tracking-tight text-balance">
-        This page wandered off.
+        {t("heading")}
       </h1>
       <p className="mt-6 max-w-md text-muted leading-relaxed text-pretty">
-        The link may be broken, or the page may have moved. Try heading back
-        home.
+        {t("body")}
       </p>
       <Link
         href="/"
@@ -25,7 +27,7 @@ export default function NotFound() {
         )}
       >
         <ArrowLeft className="h-4 w-4" strokeWidth={2} />
-        Back to home
+        {t("cta")}
       </Link>
     </section>
   );

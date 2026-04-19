@@ -6,6 +6,6 @@ export const profile = {
   tagline:
     "Bridge between customers and product. Building prototypes when feedback demands it.",
   // TODO: verify email before launch
-  email: "brian@briansalazar.dev",
+  email: "hello@briansalazar.dev",
   linkedin: "https://www.linkedin.com/in/briansalazarhos/",
 } as const;

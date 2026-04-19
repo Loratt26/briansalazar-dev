@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Check, Copy } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { FadeInOnScroll } from "@/components/FadeInOnScroll";
 import { buttonVariants } from "@/components/ui/button";
 import { profile } from "@/content/profile";
@@ -10,12 +11,13 @@ import { cn, focusRing } from "@/lib/utils";
 const COPIED_RESET_MS = 1500;
 
 export function Contact() {
+  const t = useTranslations("Contact");
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     if (!copied) return;
-    const t = setTimeout(() => setCopied(false), COPIED_RESET_MS);
-    return () => clearTimeout(t);
+    const timer = setTimeout(() => setCopied(false), COPIED_RESET_MS);
+    return () => clearTimeout(timer);
   }, [copied]);
 
   const handleCopy = async () => {
@@ -23,8 +25,8 @@ export function Contact() {
       await navigator.clipboard.writeText(profile.email);
       setCopied(true);
     } catch {
-      // Fallback: select the email so the user can copy manually.
-      window.prompt("Copy this email:", profile.email);
+      // Fallback: surface the email so the user can copy manually.
+      window.prompt(profile.email, profile.email);
     }
   };
 
@@ -41,12 +43,10 @@ export function Contact() {
               id="contact-heading"
               className="text-h2 font-semibold tracking-tight"
             >
-              Let&apos;s talk.
+              {t("heading")}
             </h2>
             <p className="mt-6 text-muted leading-relaxed text-pretty">
-              Best for roles in Support Leadership, Product Operations, or
-              anything at the intersection of customers and product in
-              Shopify-ecosystem companies.
+              {t("body")}
             </p>
 
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -56,8 +56,8 @@ export function Contact() {
                 aria-live="polite"
                 aria-label={
                   copied
-                    ? `${profile.email} copied to clipboard`
-                    : `Copy ${profile.email} to clipboard`
+                    ? t("copiedLabel", { email: profile.email })
+                    : t("copyEmailLabel", { email: profile.email })
                 }
                 className={cn(
                   buttonVariants({ variant: "primary", size: "lg" }),
@@ -67,7 +67,7 @@ export function Contact() {
                 {copied ? (
                   <>
                     <Check className="h-4 w-4" strokeWidth={2} />
-                    Copied!
+                    {t("copied")}
                   </>
                 ) : (
                   <>
@@ -86,7 +86,7 @@ export function Contact() {
                   focusRing
                 )}
               >
-                LinkedIn
+                {t("linkedin")}
               </a>
             </div>
           </div>

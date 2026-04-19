@@ -1,3 +1,190 @@
 {
-  "test": "hello"
+  "Site": {
+    "title": "Brian Salazar — Support, Product, and Building",
+    "description": "Head of Support at Penida.io. Bridge between customers and product. Portfolio of shipped work and prototypes.",
+    "twitterDescription": "Head of Support at Penida.io. Bridge between customers and product."
+  },
+  "Navigation": {
+    "ariaPrimary": "Primary",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "menuTitle": "Menu",
+    "work": "Work",
+    "side": "Side",
+    "contact": "Contact"
+  },
+  "LanguageSwitcher": {
+    "switchToEn": "Switch to English",
+    "currentEn": "Current language: English",
+    "switchToEs": "Cambiar a español",
+    "currentEs": "Current language: Spanish"
+  },
+  "Hero": {
+    "eyebrow": "Based in Lima, Peru",
+    "name": "Brian Salazar",
+    "subtitleLine1": "Head of Support at Penida.io.",
+    "subtitleLine2": "Bridge between customers and product.",
+    "subtitleLine3": "Building prototypes when feedback demands it.",
+    "ctaPrimary": "Get in touch",
+    "ctaSecondary": "View LinkedIn"
+  },
+  "WhatIDo": {
+    "heading": "What I do",
+    "supportLeadership": {
+      "title": "Support Leadership",
+      "description": "Leading an 11-person customer support team at Penida.io. Building processes, escalation paths, and the feedback loops that turn support into a product input."
+    },
+    "productContribution": {
+      "title": "Product Contribution",
+      "description": "Direct work with the CEO and CTO on roadmap priorities. I synthesize customer feedback into feature proposals and validate them before they reach engineering."
+    },
+    "building": {
+      "title": "Building",
+      "description": "When a design or flow needs validation, I build functional prototypes. Shipped code that's been reviewed by engineering and turned into production features."
+    }
+  },
+  "CaseStudies": {
+    "heading": "Selected work",
+    "subtitle": "Real problems I've owned end-to-end.",
+    "cardAriaLabel": "{title} — {oneLiner}"
+  },
+  "CaseStudyDetail": {
+    "backToHome": "Back to home",
+    "problemHeading": "Problem",
+    "approachHeading": "Approach",
+    "solutionHeading": "Solution",
+    "resultHeading": "Result",
+    "roleStackHeading": "Role & Stack",
+    "roleLabel": "Role",
+    "stackLabel": "Stack",
+    "collaboratorsLabel": "Collaborators",
+    "statusLabel": "Status",
+    "nextCaseStudy": "Next case study",
+    "iframeTitle": "Case study video"
+  },
+  "HeroGallery": {
+    "tablistAriaLabel": "Demo store screens",
+    "hint": "Click to zoom · Scroll to explore",
+    "zoomLabel": "Zoom into {label}",
+    "close": "Close",
+    "previousImage": "Previous image",
+    "nextImage": "Next image",
+    "lightboxAriaLabel": "{label} — full size"
+  },
+  "SideProjects": {
+    "heading": "Side / Experiments",
+    "subtitle": "Smaller builds and things in progress.",
+    "n8n-automations": {
+      "title": "n8n Automations",
+      "status": "Ongoing",
+      "description": "A growing collection of n8n workflows — from simple triggers to multi-step integrations with APIs, AI, and internal tools. Featured workflow: an audio summarization pipeline that transforms voice recordings into structured written summaries."
+    },
+    "hermano-mayor": {
+      "title": "HermanoMayor",
+      "status": "In development",
+      "badge": "Coming soon",
+      "description": "A mobile app in React delivering targeted motivational content to a specific audience. Currently in active development — launching soon."
+    }
+  },
+  "Contact": {
+    "heading": "Let's talk.",
+    "body": "Best for roles in Support Leadership, Product Operations, or anything at the intersection of customers and product in Shopify-ecosystem companies.",
+    "copyEmailLabel": "Copy {email} to clipboard",
+    "copiedLabel": "{email} copied to clipboard",
+    "copied": "Copied!",
+    "linkedin": "LinkedIn"
+  },
+  "Footer": {
+    "copyright": "© {year} {name}",
+    "builtWith": "Built with Next.js · Deployed on Vercel"
+  },
+  "NotFound": {
+    "eyebrow": "404 — Page not found",
+    "heading": "This page wandered off.",
+    "body": "The link may be broken, or the page may have moved. Try heading back home.",
+    "cta": "Back to home"
+  },
+  "caseStudyData": {
+    "shopify-demo-store": {
+      "title": "Shopify Demo Store",
+      "oneLiner": "Built a complete Shopify demo store from scratch to showcase a new Penida.io app for sales and onboarding.",
+      "category": "Product Demo · Shopify",
+      "status": "Live",
+      "problem": "Launching a new Shopify app meant the sales and onboarding teams needed a functional environment to show merchants what the app does in context — not slides, not mockups, a real store with real product pages, real cart, real checkout. We didn't have one.",
+      "approach": "I took ownership of building the demo store end-to-end. That meant Shopify theme setup, product catalog design, collection structure, page content, checkout configuration, and integrating our app so every feature it ships could be shown live. I used my five-plus years working inside Shopify stores to skip the usual ramp-up time.",
+      "solution": "A complete demo store, dark-themed and polished, with the new app configured and visible across the customer journey. The store is used by the team for sales calls, onboarding sessions, and internal QA.",
+      "result": [
+        "Live asset used for sales demos and onboarding from day one.",
+        "Reduced dependency on engineering for demo environments.",
+        "Functions as a permanent QA playground for future app versions."
+      ],
+      "role": "Solo build — design, theme, configuration, app integration",
+      "gallery": {
+        "home": { "label": "Home", "alt": "Subscribee App home page" },
+        "how-it-works": { "label": "How It Works", "alt": "How It Works section" },
+        "all-offers": { "label": "All Offers", "alt": "All subscription and bundle offers" },
+        "bundle-offer": { "label": "Bundle Offer", "alt": "Bundle offer detail page" },
+        "subscription-offer": { "label": "Subscription Offer", "alt": "Subscription offer detail page" }
+      }
+    },
+    "bulk-services-cowlendar": {
+      "title": "Bulk Services — Cowlendar",
+      "oneLiner": "Designed and prototyped a 5-step wizard to let merchants create multiple services at once, after identifying the pattern in months of support tickets.",
+      "category": "Product Design · Prototype",
+      "status": "Prototype validated with CTO",
+      "problem": "Merchants using Cowlendar (Penida.io's booking app for Shopify) had to create services one by one. For service businesses with larger catalogs — salons, studios, clinics — this meant dozens of repetitive actions. The pattern showed up in support tickets consistently, and it was costing us onboarding completion rates.",
+      "approach": "I translated the pattern from support feedback into a concrete product proposal, then went further: I built a functional prototype in Next.js using Claude to validate the UX before proposing it to the CTO. I wanted to hand over working evidence, not a mockup.",
+      "approachSteps": [
+        "Step 1: Business type selection",
+        "Step 2: Define the services (name, duration, price) in bulk",
+        "Step 3: Set availability rules once, apply to all",
+        "Step 4: Advanced settings (teammate assignment, capacity)",
+        "Step 5: Confirm and create"
+      ],
+      "solution": "A live prototype that creates services via the Shopify Admin API, demonstrating the full wizard flow with real data and real constraints.",
+      "result": [
+        "Validated with the CTO using functional evidence, not mockups.",
+        "The feature was accepted into the roadmap.",
+        "Reduced the discussion loop from \"can we build this?\" to \"how do we ship this?\"."
+      ],
+      "role": "Pattern identification from support feedback, UX design, functional prototype",
+      "collaborators": "CTO (review and final roadmap decision)"
+    },
+    "availability-editor-redesign": {
+      "title": "Availability Editor Redesign",
+      "oneLiner": "Redesigned an existing availability editing flow after customer feedback pointed to consistent friction, and delivered a working prototype for engineering.",
+      "category": "Product Design · Prototype",
+      "status": "Prototype delivered",
+      "problem": "The existing availability editor had accumulated friction over multiple iterations. Customers reported confusion about how availability rules compounded, and support tickets kept landing on the same edges. Rather than patching, a clean rework was needed.",
+      "approach": "I mapped the friction points from support data, sketched a simpler mental model, then built a functional React prototype with Vite to make the redesign tangible. The prototype lets engineering see the flow work end-to-end before committing implementation time.",
+      "solution": "A redesigned availability editor with a clearer rule hierarchy, better visual feedback when availability overlaps, and a simpler path for the most common use cases.",
+      "result": [
+        "Functional prototype handed to engineering as the redesign reference.",
+        "Debate moved from \"what should it look like\" to \"how do we migrate existing merchants\"."
+      ],
+      "role": "Problem synthesis, UX redesign, functional prototype",
+      "collaborators": "Engineering team"
+    },
+    "school-attendance-system": {
+      "title": "School Attendance System",
+      "oneLiner": "A local attendance tracking system I built, sold, and deployed for a private school in Lima — with reporting and tardiness alerts.",
+      "category": "Freelance · Product Built",
+      "status": "Sold and in production",
+      "problem": "A private school needed a way to track staff attendance reliably, generate monthly reports for HR, and surface tardiness patterns automatically. Their existing process was manual and error-prone.",
+      "approach": "Scoped the requirements directly with the school's administration, designed the data model, built the system, and handled deployment inside their local network. I owned the full cycle from commercial conversation to production handoff.",
+      "solution": "A self-hosted attendance system that:",
+      "solutionPoints": [
+        "Records staff entries and exits",
+        "Generates automatic monthly reports",
+        "Triggers alerts when an employee exceeds a configurable tardiness threshold",
+        "Runs on the school's local infrastructure"
+      ],
+      "result": [
+        "Sold and deployed.",
+        "Replaced the manual process.",
+        "Currently running in production at the school."
+      ],
+      "role": "Sole builder — requirements, design, development, deployment"
+    }
+  }
 }

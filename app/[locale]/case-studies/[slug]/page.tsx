@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 import { caseStudies, type CaseStudy } from "@/content/case-studies";
 import { HeroAssetPlaceholder } from "@/components/HeroAssetPlaceholder";
 import { HeroGallery } from "@/components/HeroGallery";
+import { routing } from "@/i18n/routing";
 import { cn, focusRing } from "@/lib/utils";
 
 interface PageProps {
@@ -16,21 +17,40 @@ export function generateStaticParams() {
   return caseStudies.map((cs) => ({ slug: cs.slug }));
 }
 
-export function generateMetadata({ params }: PageProps): Metadata {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const cs = caseStudies.find((c) => c.slug === params.slug);
   if (!cs) return {};
+
+  const t = await getTranslations({
+    locale: params.locale,
+    namespace: `caseStudyData.${cs.slug}`,
+  });
+  const title = t("title");
+  const oneLiner = t("oneLiner");
+  const path = `/case-studies/${cs.slug}`;
+
   return {
-    title: cs.title,
-    description: cs.oneLiner,
+    title,
+    description: oneLiner,
+    alternates: {
+      canonical: `/${params.locale}${path}`,
+      languages: {
+        ...Object.fromEntries(routing.locales.map((l) => [l, `/${l}${path}`])),
+        "x-default": `/${routing.defaultLocale}${path}`,
+      },
+    },
     openGraph: {
-      title: `${cs.title} — Brian Salazar`,
-      description: cs.oneLiner,
+      title: `${title} — Brian Salazar`,
+      description: oneLiner,
       type: "article",
+      locale: params.locale === "es" ? "es_ES" : "en_US",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${cs.title} — Brian Salazar`,
-      description: cs.oneLiner,
+      title: `${title} — Brian Salazar`,
+      description: oneLiner,
     },
   };
 }
@@ -39,14 +59,22 @@ function getLoomEmbedUrl(shareUrl: string): string {
   return shareUrl.replace("/share/", "/embed/");
 }
 
-function HeroAsset({ asset }: { asset: CaseStudy["heroAsset"] }) {
+function HeroAsset({
+  asset,
+  slug,
+  iframeTitle,
+}: {
+  asset: CaseStudy["heroAsset"];
+  slug: string;
+  iframeTitle: string;
+}) {
   if (asset.type === "loom") {
     const embedSrc = getLoomEmbedUrl(asset.src);
     return (
       <div className="relative aspect-video w-full overflow-hidden rounded-md border border-border bg-card">
         <iframe
           src={embedSrc}
-          title="Case study video"
+          title={iframeTitle}
           allowFullScreen
           allow="autoplay; fullscreen; clipboard-write"
           className="absolute inset-0 h-full w-full"
@@ -56,7 +84,7 @@ function HeroAsset({ asset }: { asset: CaseStudy["heroAsset"] }) {
   }
 
   if (asset.type === "gallery") {
-    return <HeroGallery images={asset.images} />;
+    return <HeroGallery slug={slug} images={asset.images} />;
   }
 
   // type === "image" / "video" — TODO: add hero asset (real assets arrive later)
@@ -78,7 +106,13 @@ function StackChips({ items }: { items: string[] }) {
   );
 }
 
-function MetaRow({ label, children }: { label: string; children: React.ReactNode }) {
+function MetaRow({
+  label,
+  children,
+}: {
+  label: string;
+  children: React.ReactNode;
+}) {
   return (
     <div className="grid grid-cols-1 gap-1 sm:grid-cols-[8rem_1fr] sm:gap-6 py-3 border-b border-border last:border-b-0">
       <dt className="font-mono text-xs uppercase tracking-widest text-muted-strong pt-1">
@@ -89,17 +123,28 @@ function MetaRow({ label, children }: { label: string; children: React.ReactNode
   );
 }
 
-export default function CaseStudyPage({ params }: PageProps) {
+export default async function CaseStudyPage({ params }: PageProps) {
   setRequestLocale(params.locale);
   const cs = caseStudies.find((c) => c.slug === params.slug);
   if (!cs) notFound();
 
+  const tDetail = await getTranslations("CaseStudyDetail");
+  const tCs = await getTranslations(`caseStudyData.${cs.slug}`);
+
   const idx = caseStudies.findIndex((c) => c.slug === params.slug);
   const next = caseStudies[(idx + 1) % caseStudies.length];
+  const tNext = await getTranslations(`caseStudyData.${next.slug}`);
+
+  const result = tCs.raw("result") as string[];
+  const approachSteps = cs.hasApproachSteps
+    ? (tCs.raw("approachSteps") as string[])
+    : null;
+  const solutionPoints = cs.hasSolutionPoints
+    ? (tCs.raw("solutionPoints") as string[])
+    : null;
 
   return (
     <article className="mx-auto max-w-[720px] px-6 md:px-8 pb-24 pt-8 md:pt-12">
-      {/* Back link */}
       <Link
         href="/#work"
         className={cn(
@@ -108,48 +153,48 @@ export default function CaseStudyPage({ params }: PageProps) {
         )}
       >
         <ArrowLeft className="h-4 w-4" strokeWidth={1.75} />
-        Back to home
+        {tDetail("backToHome")}
       </Link>
 
-      {/* Header */}
       <header className="mt-10">
         <p className="font-mono text-xs uppercase tracking-widest text-muted-strong">
-          {cs.category} · {cs.year}
+          {tCs("category")} · {cs.year}
         </p>
         <h1 className="mt-4 text-h1 font-semibold tracking-tight text-balance">
-          {cs.title}
+          {tCs("title")}
         </h1>
         <p className="mt-6 text-lg leading-relaxed text-muted text-pretty">
-          {cs.oneLiner}
+          {tCs("oneLiner")}
         </p>
       </header>
 
-      {/* Hero visual */}
       <div className="mt-12">
-        <HeroAsset asset={cs.heroAsset} />
+        <HeroAsset
+          asset={cs.heroAsset}
+          slug={cs.slug}
+          iframeTitle={tDetail("iframeTitle")}
+        />
       </div>
 
-      {/* Problem */}
       <section>
         <h2 className="mt-16 mb-6 text-h2 font-semibold tracking-tight">
-          Problem
+          {tDetail("problemHeading")}
         </h2>
         <p className="mb-4 leading-relaxed text-foreground/90 text-pretty">
-          {cs.problem}
+          {tCs("problem")}
         </p>
       </section>
 
-      {/* Approach */}
       <section>
         <h2 className="mt-16 mb-6 text-h2 font-semibold tracking-tight">
-          Approach
+          {tDetail("approachHeading")}
         </h2>
         <p className="mb-4 leading-relaxed text-foreground/90 text-pretty">
-          {cs.approach}
+          {tCs("approach")}
         </p>
-        {cs.approachSteps && (
+        {approachSteps && (
           <ol className="mt-6 space-y-3 list-decimal list-inside marker:text-muted-strong marker:font-mono">
-            {cs.approachSteps.map((step) => (
+            {approachSteps.map((step) => (
               <li key={step} className="leading-relaxed text-foreground/90">
                 {step}
               </li>
@@ -158,17 +203,16 @@ export default function CaseStudyPage({ params }: PageProps) {
         )}
       </section>
 
-      {/* Solution */}
       <section>
         <h2 className="mt-16 mb-6 text-h2 font-semibold tracking-tight">
-          Solution
+          {tDetail("solutionHeading")}
         </h2>
         <p className="mb-4 leading-relaxed text-foreground/90 text-pretty">
-          {cs.solution}
+          {tCs("solution")}
         </p>
-        {cs.solutionPoints && (
+        {solutionPoints && (
           <ul className="mt-4 space-y-3">
-            {cs.solutionPoints.map((point) => (
+            {solutionPoints.map((point) => (
               <li
                 key={point}
                 className="flex gap-3 leading-relaxed text-foreground/90"
@@ -184,13 +228,12 @@ export default function CaseStudyPage({ params }: PageProps) {
         )}
       </section>
 
-      {/* Result */}
       <section>
         <h2 className="mt-16 mb-6 text-h2 font-semibold tracking-tight">
-          Result
+          {tDetail("resultHeading")}
         </h2>
         <ul className="space-y-3">
-          {cs.result.map((item) => (
+          {result.map((item) => (
             <li
               key={item}
               className="flex gap-3 leading-relaxed text-foreground/90"
@@ -206,24 +249,24 @@ export default function CaseStudyPage({ params }: PageProps) {
         </ul>
       </section>
 
-      {/* Role & Stack */}
       <section>
         <h2 className="mt-16 mb-6 text-h2 font-semibold tracking-tight">
-          Role &amp; Stack
+          {tDetail("roleStackHeading")}
         </h2>
         <dl className="rounded-lg border border-border bg-card p-6 md:p-7">
-          <MetaRow label="Role">{cs.role}</MetaRow>
-          <MetaRow label="Stack">
+          <MetaRow label={tDetail("roleLabel")}>{tCs("role")}</MetaRow>
+          <MetaRow label={tDetail("stackLabel")}>
             <StackChips items={cs.stack} />
           </MetaRow>
-          {cs.collaborators && (
-            <MetaRow label="Collaborators">{cs.collaborators}</MetaRow>
+          {cs.hasCollaborators && (
+            <MetaRow label={tDetail("collaboratorsLabel")}>
+              {tCs("collaborators")}
+            </MetaRow>
           )}
-          <MetaRow label="Status">{cs.status}</MetaRow>
+          <MetaRow label={tDetail("statusLabel")}>{tCs("status")}</MetaRow>
         </dl>
       </section>
 
-      {/* Next case study */}
       <div className="mt-24 pt-8 border-t border-border">
         <Link
           href={`/case-studies/${next.slug}`}
@@ -234,10 +277,10 @@ export default function CaseStudyPage({ params }: PageProps) {
         >
           <div className="min-w-0">
             <p className="font-mono text-xs uppercase tracking-widest text-muted-strong">
-              Next case study
+              {tDetail("nextCaseStudy")}
             </p>
             <p className="mt-1 text-lg font-semibold tracking-tight truncate">
-              {next.title}
+              {tNext("title")}
             </p>
           </div>
           <ArrowRight

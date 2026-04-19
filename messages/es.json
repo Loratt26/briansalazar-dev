@@ -1,3 +1,190 @@
 {
-  "test": "hola"
+  "Site": {
+    "title": "Brian Salazar — Soporte, Producto y Construcción",
+    "description": "Head of Support en Penida.io. Puente entre los clientes y producto. Portafolio de trabajos enviados y prototipos.",
+    "twitterDescription": "Head of Support en Penida.io. Puente entre los clientes y producto."
+  },
+  "Navigation": {
+    "ariaPrimary": "Principal",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "menuTitle": "Menú",
+    "work": "Trabajos",
+    "side": "Side",
+    "contact": "Contacto"
+  },
+  "LanguageSwitcher": {
+    "switchToEn": "Switch to English",
+    "currentEn": "Current language: English",
+    "switchToEs": "Cambiar a español",
+    "currentEs": "Idioma actual: español"
+  },
+  "Hero": {
+    "eyebrow": "Basado en Lima, Perú",
+    "name": "Brian Salazar",
+    "subtitleLine1": "Head of Support en Penida.io.",
+    "subtitleLine2": "Puente entre los clientes y producto.",
+    "subtitleLine3": "Construyo prototipos cuando el feedback lo exige.",
+    "ctaPrimary": "Escríbeme",
+    "ctaSecondary": "Ver LinkedIn"
+  },
+  "WhatIDo": {
+    "heading": "Lo que hago",
+    "supportLeadership": {
+      "title": "Liderazgo de Soporte",
+      "description": "Lidero un equipo de 11 personas en soporte al cliente en Penida.io. Construyo procesos, rutas de escalación y los loops de feedback que convierten al soporte en un input de producto."
+    },
+    "productContribution": {
+      "title": "Contribución a Producto",
+      "description": "Trabajo directo con el CEO y el CTO en las prioridades del roadmap. Sintetizo el feedback de los clientes en propuestas de features y las valido antes de que lleguen a ingeniería."
+    },
+    "building": {
+      "title": "Construcción",
+      "description": "Cuando un diseño o un flujo necesita validación, construyo prototipos funcionales. Código que ingeniería revisó y convirtió en features de producción."
+    }
+  },
+  "CaseStudies": {
+    "heading": "Trabajos seleccionados",
+    "subtitle": "Problemas reales que lideré de principio a fin.",
+    "cardAriaLabel": "{title} — {oneLiner}"
+  },
+  "CaseStudyDetail": {
+    "backToHome": "Volver al inicio",
+    "problemHeading": "Problema",
+    "approachHeading": "Enfoque",
+    "solutionHeading": "Solución",
+    "resultHeading": "Resultado",
+    "roleStackHeading": "Rol y Stack",
+    "roleLabel": "Rol",
+    "stackLabel": "Stack",
+    "collaboratorsLabel": "Colaboradores",
+    "statusLabel": "Estado",
+    "nextCaseStudy": "Siguiente caso",
+    "iframeTitle": "Video del caso de estudio"
+  },
+  "HeroGallery": {
+    "tablistAriaLabel": "Pantallas de la tienda demo",
+    "hint": "Click para ampliar · Scroll para explorar",
+    "zoomLabel": "Ampliar {label}",
+    "close": "Cerrar",
+    "previousImage": "Imagen anterior",
+    "nextImage": "Imagen siguiente",
+    "lightboxAriaLabel": "{label} — tamaño completo"
+  },
+  "SideProjects": {
+    "heading": "Side / Experimentos",
+    "subtitle": "Proyectos más pequeños y cosas en desarrollo.",
+    "n8n-automations": {
+      "title": "n8n Automations",
+      "status": "En curso",
+      "description": "Una colección creciente de workflows en n8n — desde triggers simples hasta integraciones de varios pasos con APIs, IA y herramientas internas. Workflow destacado: un pipeline de resumen de audio que transforma grabaciones de voz en resúmenes escritos estructurados."
+    },
+    "hermano-mayor": {
+      "title": "HermanoMayor",
+      "status": "En desarrollo",
+      "badge": "Próximamente",
+      "description": "Una app móvil en React que entrega contenido motivacional dirigido a una audiencia específica. En desarrollo activo — pronto al aire."
+    }
+  },
+  "Contact": {
+    "heading": "Conversemos.",
+    "body": "Ideal para roles en Liderazgo de Soporte, Product Operations o cualquier cosa en la intersección entre los clientes y producto en empresas del ecosistema Shopify.",
+    "copyEmailLabel": "Copiar {email} al portapapeles",
+    "copiedLabel": "{email} copiado al portapapeles",
+    "copied": "¡Copiado!",
+    "linkedin": "LinkedIn"
+  },
+  "Footer": {
+    "copyright": "© {year} {name}",
+    "builtWith": "Hecho con Next.js · Desplegado en Vercel"
+  },
+  "NotFound": {
+    "eyebrow": "404 — Página no encontrada",
+    "heading": "Esta página se fue por su cuenta.",
+    "body": "El enlace puede estar roto o la página puede haberse movido. Vuelve al inicio.",
+    "cta": "Volver al inicio"
+  },
+  "caseStudyData": {
+    "shopify-demo-store": {
+      "title": "Shopify Demo Store",
+      "oneLiner": "Construí una tienda demo completa en Shopify desde cero para mostrar una nueva app de Penida.io en ventas y onboarding.",
+      "category": "Demo de Producto · Shopify",
+      "status": "En producción",
+      "problem": "Lanzar una nueva app de Shopify significaba que los equipos de ventas y onboarding necesitaban un entorno funcional para mostrar a los merchants qué hace la app en contexto — no slides, no mockups, una tienda real con páginas de producto reales, carrito real, checkout real. No teníamos una.",
+      "approach": "Lideré la construcción de la tienda demo de principio a fin. Eso significó configurar el theme de Shopify, diseñar el catálogo de productos, estructurar las colecciones, escribir el contenido, configurar el checkout e integrar nuestra app para que cada feature que sale al aire pueda mostrarse en vivo. Usé mis cinco años trabajando dentro de tiendas Shopify para saltarme el ramp-up usual.",
+      "solution": "Una tienda demo completa, dark-themed y pulida, con la nueva app configurada y visible en todo el customer journey. La tienda la usa el equipo en llamadas de ventas, sesiones de onboarding y QA interno.",
+      "result": [
+        "Activo en vivo usado para demos de ventas y onboarding desde el día uno.",
+        "Reducí la dependencia de ingeniería para entornos demo.",
+        "Funciona como un playground permanente de QA para futuras versiones de la app."
+      ],
+      "role": "Construcción solo — diseño, theme, configuración, integración de la app",
+      "gallery": {
+        "home": { "label": "Home", "alt": "Página de inicio de la app Subscribee" },
+        "how-it-works": { "label": "Cómo Funciona", "alt": "Sección de Cómo Funciona" },
+        "all-offers": { "label": "Todas las Ofertas", "alt": "Todas las ofertas de suscripción y bundle" },
+        "bundle-offer": { "label": "Bundle Offer", "alt": "Página de detalle de oferta de bundle" },
+        "subscription-offer": { "label": "Subscription Offer", "alt": "Página de detalle de oferta de suscripción" }
+      }
+    },
+    "bulk-services-cowlendar": {
+      "title": "Bulk Services — Cowlendar",
+      "oneLiner": "Diseñé y prototipé un wizard de 5 pasos para que los merchants creen múltiples servicios a la vez, después de identificar el patrón en meses de tickets de soporte.",
+      "category": "Diseño de Producto · Prototipo",
+      "status": "Prototipo validado con el CTO",
+      "problem": "Los merchants que usan Cowlendar (la app de bookings de Penida.io para Shopify) tenían que crear los servicios uno por uno. Para negocios de servicios con catálogos más grandes — salones, estudios, clínicas — eso significaba decenas de acciones repetitivas. El patrón aparecía en los tickets de soporte de forma consistente, y nos estaba costando tasas de finalización de onboarding.",
+      "approach": "Traduje el patrón del feedback de soporte en una propuesta concreta de producto, y fui más allá: construí un prototipo funcional en Next.js usando Claude para validar la UX antes de proponérselo al CTO. Quería entregar evidencia funcional, no un mockup.",
+      "approachSteps": [
+        "Paso 1: selección del tipo de negocio",
+        "Paso 2: definir los servicios (nombre, duración, precio) en bulk",
+        "Paso 3: configurar las reglas de disponibilidad una vez, aplicarlas a todos",
+        "Paso 4: configuración avanzada (asignación de teammates, capacidad)",
+        "Paso 5: confirmar y crear"
+      ],
+      "solution": "Un prototipo en vivo que crea servicios vía la Shopify Admin API, demostrando el flujo completo del wizard con datos reales y restricciones reales.",
+      "result": [
+        "Validado con el CTO usando evidencia funcional, no mockups.",
+        "El feature fue aceptado en el roadmap.",
+        "Reduje el loop de discusión de \"¿podemos construir esto?\" a \"¿cómo lo enviamos?\"."
+      ],
+      "role": "Identificación de patrones desde el feedback de soporte, diseño de UX, prototipo funcional",
+      "collaborators": "CTO (revisión y decisión final del roadmap)"
+    },
+    "availability-editor-redesign": {
+      "title": "Availability Editor Redesign",
+      "oneLiner": "Rediseñé un flujo existente de edición de disponibilidad después de que el feedback de los clientes apuntara a una fricción consistente, y entregué un prototipo funcional para ingeniería.",
+      "category": "Diseño de Producto · Prototipo",
+      "status": "Prototipo entregado",
+      "problem": "El editor de disponibilidad existente había acumulado fricción a lo largo de varias iteraciones. Los clientes reportaban confusión sobre cómo se combinaban las reglas de disponibilidad, y los tickets de soporte seguían cayendo en los mismos bordes. En lugar de parchar, hacía falta un rework limpio.",
+      "approach": "Mapeé los puntos de fricción desde la data de soporte, esbocé un modelo mental más simple y luego construí un prototipo funcional en React con Vite para hacer el rediseño tangible. El prototipo le permite a ingeniería ver el flujo funcionar de principio a fin antes de comprometer tiempo de implementación.",
+      "solution": "Un editor de disponibilidad rediseñado con una jerarquía de reglas más clara, mejor feedback visual cuando hay solapamientos de disponibilidad, y un camino más simple para los casos de uso más comunes.",
+      "result": [
+        "Prototipo funcional entregado a ingeniería como referencia del rediseño.",
+        "El debate pasó de \"cómo debería verse\" a \"cómo migramos a los merchants existentes\"."
+      ],
+      "role": "Síntesis del problema, rediseño de UX, prototipo funcional",
+      "collaborators": "Equipo de ingeniería"
+    },
+    "school-attendance-system": {
+      "title": "Sistema de Asistencia para Colegio",
+      "oneLiner": "Un sistema local de control de asistencia que construí, vendí y desplegué para un colegio privado en Lima — con reportes y alertas de tardanza.",
+      "category": "Freelance · Producto Construido",
+      "status": "Vendido y en producción",
+      "problem": "Un colegio privado necesitaba una forma de controlar la asistencia del personal de manera confiable, generar reportes mensuales para RR.HH. y exponer patrones de tardanza de forma automática. Su proceso existente era manual y propenso a errores.",
+      "approach": "Levanté los requerimientos directamente con la administración del colegio, diseñé el modelo de datos, construí el sistema y manejé el despliegue dentro de su red local. Lideré el ciclo completo desde la conversación comercial hasta la entrega a producción.",
+      "solution": "Un sistema de asistencia self-hosted que:",
+      "solutionPoints": [
+        "Registra las entradas y salidas del personal",
+        "Genera reportes mensuales automáticos",
+        "Dispara alertas cuando un empleado supera un umbral configurable de tardanza",
+        "Corre sobre la infraestructura local del colegio"
+      ],
+      "result": [
+        "Vendido y desplegado.",
+        "Reemplazó el proceso manual.",
+        "Actualmente en producción en el colegio."
+      ],
+      "role": "Constructor único — requerimientos, diseño, desarrollo, despliegue"
+    }
+  }
 }
