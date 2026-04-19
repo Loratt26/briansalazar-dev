@@ -32,15 +32,15 @@
     "heading": "Lo que hago",
     "supportLeadership": {
       "title": "Liderazgo de Soporte",
-      "description": "Lidero un equipo de 11 personas en soporte al cliente en Penida.io. Construyo procesos, rutas de escalación y los loops de feedback que convierten al soporte en un input de producto."
+      "description": "Lidero un equipo de 11 personas en soporte al cliente en Penida.io. Construyo procesos, rutas de escalación y los ciclos de feedback que convierten al soporte en un insumo para producto."
     },
     "productContribution": {
       "title": "Contribución a Producto",
-      "description": "Trabajo directo con el CEO y el CTO en las prioridades del roadmap. Sintetizo el feedback de los clientes en propuestas de features y las valido antes de que lleguen a ingeniería."
+      "description": "Trabajo directo con el CEO y el CTO en las prioridades del roadmap. Sintetizo el feedback de clientes en propuestas de features y las valido antes de pasarlas a ingeniería."
     },
     "building": {
       "title": "Construcción",
-      "description": "Cuando un diseño o un flujo necesita validación, construyo prototipos funcionales. Código que ingeniería revisó y convirtió en features de producción."
+      "description": "Cuando un diseño o un flujo necesita validación, construyo prototipos funcionales. Código que el equipo de ingeniería revisó y convirtió en features de producción."
     }
   },
   "CaseStudies": {
@@ -83,12 +83,12 @@
       "title": "HermanoMayor",
       "status": "En desarrollo",
       "badge": "Próximamente",
-      "description": "Una app móvil en React que entrega contenido motivacional dirigido a una audiencia específica. En desarrollo activo — pronto al aire."
+      "description": "Una app móvil en React que entrega contenido motivacional dirigido a una audiencia específica. En desarrollo activo — lanzamiento próximo."
     }
   },
   "Contact": {
     "heading": "Conversemos.",
-    "body": "Ideal para roles en Liderazgo de Soporte, Product Operations o cualquier cosa en la intersección entre los clientes y producto en empresas del ecosistema Shopify.",
+    "body": "Ideal para roles en Liderazgo de Soporte, Product Operations o cualquier trabajo en la intersección entre los clientes y producto en empresas del ecosistema Shopify.",
     "copyEmailLabel": "Copiar {email} al portapapeles",
     "copiedLabel": "{email} copiado al portapapeles",
     "copied": "¡Copiado!",
@@ -118,13 +118,13 @@
         "Reducí la dependencia de ingeniería para entornos demo.",
         "Funciona como un playground permanente de QA para futuras versiones de la app."
       ],
-      "role": "Construcción solo — diseño, theme, configuración, integración de la app",
+      "role": "Solo — diseño, theme, configuración, integración de la app",
       "gallery": {
-        "home": { "label": "Home", "alt": "Página de inicio de la app Subscribee" },
-        "how-it-works": { "label": "Cómo Funciona", "alt": "Sección de Cómo Funciona" },
-        "all-offers": { "label": "Todas las Ofertas", "alt": "Todas las ofertas de suscripción y bundle" },
-        "bundle-offer": { "label": "Bundle Offer", "alt": "Página de detalle de oferta de bundle" },
-        "subscription-offer": { "label": "Subscription Offer", "alt": "Página de detalle de oferta de suscripción" }
+        "home": { "label": "Inicio", "alt": "Página de inicio de la app Subscribee" },
+        "how-it-works": { "label": "Cómo funciona", "alt": "Sección de Cómo funciona" },
+        "all-offers": { "label": "Todas las ofertas", "alt": "Todas las ofertas de suscripción y bundle" },
+        "bundle-offer": { "label": "Bundle", "alt": "Página de detalle de oferta de bundle" },
+        "subscription-offer": { "label": "Subscripción", "alt": "Página de detalle de oferta de suscripción" }
       }
     },
     "bulk-services-cowlendar": {

@@ -44,7 +44,7 @@ export const caseStudies: CaseStudy[] = [
         { src: "/images/case-studies/shopify-demo-store/subscription-offer.webp", key: "subscription-offer" },
       ],
     },
-    stack: ["Shopify", "Liquid", "The Penida.io app being demonstrated"],
+    stack: ["Shopify", "Liquid", "Penida.io app"],
   },
   {
     slug: "bulk-services-cowlendar",
