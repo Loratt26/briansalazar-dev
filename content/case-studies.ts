@@ -65,8 +65,9 @@ export const caseStudies: CaseStudy[] = [
     year: "2026",
     thumbnail: "/images/case-studies/availability-editor-redesign/thumb-availability.webp",
     heroAsset: {
-      type: "image",
-      src: "/images/case-studies/availability-editor-redesign.png",
+      type: "iframe",
+      src: "https://availability.briansalazar.dev",
+      title: "Availability Editor prototype — Cowlendar redesign",
     },
     stack: ["React 18", "Vite", "TypeScript"],
     hasCollaborators: true,
