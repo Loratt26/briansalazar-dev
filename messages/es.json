@@ -189,7 +189,14 @@
         "Reemplazó el proceso manual.",
         "Actualmente en producción en el colegio."
       ],
-      "role": "Solo — requerimientos, diseño, desarrollo, despliegue"
+      "role": "Solo — requerimientos, diseño, desarrollo, despliegue",
+      "gallery": {
+        "home": { "label": "Inicio", "alt": "Página de inicio del sistema de asistencia" },
+        "dashboard": { "label": "Panel", "alt": "Panel de control con resumen diario de asistencia" },
+        "manual-record": { "label": "Registro Manual", "alt": "Formulario de registro manual de asistencia del personal" },
+        "reports": { "label": "Reportes", "alt": "Vista de reportes mensuales de asistencia" },
+        "alerts": { "label": "Alertas", "alt": "Configuración e historial de alertas de tardanza" }
+      }
     }
   }
 }

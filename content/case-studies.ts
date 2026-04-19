@@ -77,8 +77,14 @@ export const caseStudies: CaseStudy[] = [
     year: "2024",
     thumbnail: "/images/case-studies/school-attendance-system/thumb-school.webp",
     heroAsset: {
-      type: "image",
-      src: "/images/case-studies/school-attendance-system.png",
+      type: "gallery",
+      images: [
+        { src: "/images/case-studies/school-attendance-system/home.webp", key: "home" },
+        { src: "/images/case-studies/school-attendance-system/dashboard.webp", key: "dashboard" },
+        { src: "/images/case-studies/school-attendance-system/manual-record.webp", key: "manual-record" },
+        { src: "/images/case-studies/school-attendance-system/reports.webp", key: "reports" },
+        { src: "/images/case-studies/school-attendance-system/alerts.webp", key: "alerts" },
+      ],
     },
     stack: ["Python", "Django", "PostgreSQL", "Docker", "Railway"],
     hasSolutionPoints: true,

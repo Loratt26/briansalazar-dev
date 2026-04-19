@@ -189,7 +189,14 @@
         "Replaced the manual process.",
         "Currently running in production at the school."
       ],
-      "role": "Sole builder — requirements, design, development, deployment"
+      "role": "Sole builder — requirements, design, development, deployment",
+      "gallery": {
+        "home": { "label": "Home", "alt": "School attendance system home page" },
+        "dashboard": { "label": "Dashboard", "alt": "Attendance dashboard with daily overview" },
+        "manual-record": { "label": "Manual Record", "alt": "Manual attendance entry form for staff" },
+        "reports": { "label": "Reports", "alt": "Monthly attendance reports view" },
+        "alerts": { "label": "Alerts", "alt": "Tardiness alert configuration and history" }
+      }
     }
   }
 }
