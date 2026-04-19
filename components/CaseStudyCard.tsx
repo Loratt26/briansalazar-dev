@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { HeroAssetPlaceholder } from "@/components/HeroAssetPlaceholder";
@@ -9,7 +10,7 @@ interface CaseStudyCardProps {
 }
 
 export function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
-  const { slug, title, oneLiner, category, year } = caseStudy;
+  const { slug, title, oneLiner, category, year, thumbnail } = caseStudy;
 
   return (
     <Link
@@ -29,7 +30,19 @@ export function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
 
         <p className="mt-2 truncate text-sm text-muted">{oneLiner}</p>
 
-        <HeroAssetPlaceholder className="mt-6" />
+        {thumbnail ? (
+          <div className="mt-6 relative aspect-video w-full overflow-hidden rounded-md border border-border bg-card">
+            <Image
+              src={thumbnail}
+              alt={title}
+              fill
+              sizes="(min-width: 768px) 50vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+        ) : (
+          <HeroAssetPlaceholder className="mt-6" />
+        )}
 
         <ArrowUpRight
           aria-hidden

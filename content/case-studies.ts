@@ -1,5 +1,14 @@
 // Case study content — see PORTFOLIO_SPEC.md §7.2 (content) and §9 (shape).
 // Status uses free-form strings to match the descriptive values in the spec.
+export type HeroAsset =
+  | { type: "loom"; src: string }
+  | { type: "image"; src: string; alt: string }
+  | { type: "video"; src: string }
+  | {
+      type: "gallery";
+      images: Array<{ src: string; alt: string; label: string }>;
+    };
+
 export interface CaseStudy {
   slug: string;
   title: string;
@@ -7,10 +16,9 @@ export interface CaseStudy {
   category: string;
   year: string;
   status: string;
-  heroAsset: {
-    type: "loom" | "image" | "video";
-    src: string;
-  };
+  /** Path to a 16:9-ish thumbnail used on the home-page card. */
+  thumbnail?: string;
+  heroAsset: HeroAsset;
   problem: string;
   approach: string;
   /** Optional bulleted steps that follow the approach prose. */
@@ -33,9 +41,36 @@ export const caseStudies: CaseStudy[] = [
     category: "Product Demo · Shopify",
     year: "2025",
     status: "Live",
+    thumbnail: "/images/case-studies/shopify-demo-store/thumb-webdemo.png",
     heroAsset: {
-      type: "loom",
-      src: "https://www.loom.com/share/75c4d6cd447f4d3490be655920940a1a",
+      type: "gallery",
+      images: [
+        {
+          src: "/images/case-studies/shopify-demo-store/home.png",
+          alt: "Subscribee App home page",
+          label: "Home",
+        },
+        {
+          src: "/images/case-studies/shopify-demo-store/how-it-works.png",
+          alt: "How It Works section",
+          label: "How It Works",
+        },
+        {
+          src: "/images/case-studies/shopify-demo-store/all-offers.png",
+          alt: "All subscription and bundle offers",
+          label: "All Offers",
+        },
+        {
+          src: "/images/case-studies/shopify-demo-store/bundle-offer.png",
+          alt: "Bundle offer detail page",
+          label: "Bundle Offer",
+        },
+        {
+          src: "/images/case-studies/shopify-demo-store/subscription-offer.png",
+          alt: "Subscription offer detail page",
+          label: "Subscription Offer",
+        },
+      ],
     },
     problem:
       "Launching a new Shopify app meant the sales and onboarding teams needed a functional environment to show merchants what the app does in context — not slides, not mockups, a real store with real product pages, real cart, real checkout. We didn't have one.",
@@ -59,9 +94,11 @@ export const caseStudies: CaseStudy[] = [
     category: "Product Design · Prototype",
     year: "2026",
     status: "Prototype validated with CTO",
+    thumbnail: "/images/case-studies/bulk-services-cowlendar/thumb.png",
     heroAsset: {
       type: "image",
       src: "/images/case-studies/bulk-services-cowlendar.png",
+      alt: "Bulk Services prototype screenshot",
     },
     problem:
       "Merchants using Cowlendar (Penida.io's booking app for Shopify) had to create services one by one. For service businesses with larger catalogs — salons, studios, clinics — this meant dozens of repetitive actions. The pattern showed up in support tickets consistently, and it was costing us onboarding completion rates.",
@@ -93,9 +130,11 @@ export const caseStudies: CaseStudy[] = [
     category: "Product Design · Prototype",
     year: "2026",
     status: "Prototype delivered",
+    thumbnail: "/images/case-studies/availability-editor-redesign/thumb.png",
     heroAsset: {
       type: "image",
       src: "/images/case-studies/availability-editor-redesign.png",
+      alt: "Availability editor prototype screenshot",
     },
     problem:
       "The existing availability editor had accumulated friction over multiple iterations. Customers reported confusion about how availability rules compounded, and support tickets kept landing on the same edges. Rather than patching, a clean rework was needed.",
@@ -119,9 +158,11 @@ export const caseStudies: CaseStudy[] = [
     category: "Freelance · Product Built",
     year: "2024",
     status: "Sold and in production",
+    thumbnail: "/images/case-studies/school-attendance-system/thumb.png",
     heroAsset: {
       type: "image",
       src: "/images/case-studies/school-attendance-system.png",
+      alt: "School attendance system screenshot",
     },
     problem:
       "A private school needed a way to track staff attendance reliably, generate monthly reports for HR, and surface tardiness patterns automatically. Their existing process was manual and error-prone.",

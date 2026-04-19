@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { caseStudies, type CaseStudy } from "@/content/case-studies";
 import { HeroAssetPlaceholder } from "@/components/HeroAssetPlaceholder";
+import { HeroGallery } from "@/components/HeroGallery";
 import { cn, focusRing } from "@/lib/utils";
 
 interface PageProps {
@@ -53,12 +54,11 @@ function HeroAsset({ asset }: { asset: CaseStudy["heroAsset"] }) {
     );
   }
 
-  if (asset.type === "video") {
-    // TODO: add hero asset
-    return <HeroAssetPlaceholder iconSize="lg" />;
+  if (asset.type === "gallery") {
+    return <HeroGallery images={asset.images} />;
   }
 
-  // type === "image" — TODO: add hero asset (real screenshots arrive later)
+  // type === "image" / "video" — TODO: add hero asset (real assets arrive later)
   return <HeroAssetPlaceholder iconSize="lg" />;
 }
 
