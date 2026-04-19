@@ -8,9 +8,9 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { cn, focusRing } from "@/lib/utils";
 
 const NAV_LINKS = [
-  { href: "#work", labelKey: "work" as const },
-  { href: "#side", labelKey: "side" as const },
-  { href: "#contact", labelKey: "contact" as const },
+  { href: "/#work", labelKey: "work" as const },
+  { href: "/#side", labelKey: "side" as const },
+  { href: "/#contact", labelKey: "contact" as const },
 ];
 
 export function Navigation() {
@@ -67,7 +67,7 @@ export function Navigation() {
             <ul className="flex items-center gap-8 text-sm">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className={cn(
                       "text-muted hover:text-accent transition-colors",
@@ -75,7 +75,7 @@ export function Navigation() {
                     )}
                   >
                     {t(link.labelKey)}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -123,7 +123,7 @@ export function Navigation() {
           <ul className="flex flex-col items-start gap-6 px-6 pt-12 text-3xl font-semibold tracking-tight">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
-                <a
+                <Link
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
                   className={cn(
@@ -132,7 +132,7 @@ export function Navigation() {
                   )}
                 >
                   {t(link.labelKey)}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

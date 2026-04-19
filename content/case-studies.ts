@@ -77,7 +77,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "school-attendance-system",
-    year: "2024",
+    year: "2025",
     thumbnail: "/images/case-studies/school-attendance-system/thumb-school.webp",
     heroAsset: {
       type: "gallery",

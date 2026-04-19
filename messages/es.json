@@ -101,7 +101,7 @@
   },
   "Footer": {
     "copyright": "© {year} {name}",
-    "builtWith": "Hecho con Next.js · Desplegado en Vercel"
+    "linkedinAriaLabel": "Visitar perfil de LinkedIn de Brian"
   },
   "NotFound": {
     "eyebrow": "404 — Página no encontrada",
