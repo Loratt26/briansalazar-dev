@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { cn, focusRing } from "@/lib/utils";
 
@@ -52,15 +53,15 @@ export function Navigation() {
           aria-label={t("ariaPrimary")}
           className="mx-auto flex max-w-wide items-center justify-between px-6 md:px-8 h-16"
         >
-          <a
-            href="#top"
+          <Link
+            href="/"
             className={cn(
               "font-mono text-sm tracking-tight text-foreground hover:text-accent transition-colors",
               focusRing
             )}
           >
-            briansalazar
-          </a>
+            BrianSalazar
+          </Link>
 
           <div className="hidden md:flex items-center gap-6">
             <ul className="flex items-center gap-8 text-sm">
@@ -106,7 +107,7 @@ export function Navigation() {
           className="fixed inset-0 z-50 bg-background animate-fade-up md:hidden flex flex-col"
         >
           <div className="flex items-center justify-between px-6 h-16">
-            <span className="font-mono text-sm tracking-tight">briansalazar</span>
+            <span className="font-mono text-sm tracking-tight">BrianSalazar</span>
             <button
               type="button"
               aria-label={t("closeMenu")}
