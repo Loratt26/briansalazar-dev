@@ -1,8 +1,9 @@
 import { Hero } from "@/components/sections/Hero";
 import { WhatIDo } from "@/components/sections/WhatIDo";
 import { CaseStudies } from "@/components/sections/CaseStudies";
+import { SideProjects } from "@/components/sections/SideProjects";
 
-// Empty anchor targets so nav links resolve until §13 steps 8, 9 land.
+// Empty anchor target so the Contact nav link resolves until §13 step 9 lands.
 function AnchorStub({ id }: { id: string }) {
   return <section id={id} aria-hidden className="scroll-mt-16" />;
 }
@@ -13,7 +14,7 @@ export default function HomePage() {
       <Hero />
       <WhatIDo />
       <CaseStudies />
-      <AnchorStub id="side" />
+      <SideProjects />
       <AnchorStub id="contact" />
     </>
   );
