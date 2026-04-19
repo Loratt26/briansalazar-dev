@@ -94,7 +94,7 @@ export const caseStudies: CaseStudy[] = [
     category: "Product Design · Prototype",
     year: "2026",
     status: "Prototype validated with CTO",
-    thumbnail: "/images/case-studies/bulk-services-cowlendar/thumb.png",
+    thumbnail: "/images/case-studies/bulk-services-cowlendar/thumb-bulk.webp",
     heroAsset: {
       type: "image",
       src: "/images/case-studies/bulk-services-cowlendar.png",
@@ -130,7 +130,7 @@ export const caseStudies: CaseStudy[] = [
     category: "Product Design · Prototype",
     year: "2026",
     status: "Prototype delivered",
-    thumbnail: "/images/case-studies/availability-editor-redesign/thumb.png",
+    thumbnail: "/images/case-studies/availability-editor-redesign/thumb-availability.webp",
     heroAsset: {
       type: "image",
       src: "/images/case-studies/availability-editor-redesign.png",
@@ -158,7 +158,7 @@ export const caseStudies: CaseStudy[] = [
     category: "Freelance · Product Built",
     year: "2024",
     status: "Sold and in production",
-    thumbnail: "/images/case-studies/school-attendance-system/thumb.png",
+    thumbnail: "/images/case-studies/school-attendance-system/thumb-school.webp",
     heroAsset: {
       type: "image",
       src: "/images/case-studies/school-attendance-system.png",
