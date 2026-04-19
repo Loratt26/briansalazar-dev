@@ -140,7 +140,6 @@ export const caseStudies: CaseStudy[] = [
       "Currently running in production at the school.",
     ],
     role: "Sole builder — requirements, design, development, deployment",
-    // TODO: fill stack from school attendance repo
-    stack: ["TBD"],
+    stack: ["Python", "Django", "PostgreSQL", "Docker", "Railway"],
   },
 ];
