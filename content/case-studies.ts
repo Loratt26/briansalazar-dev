@@ -10,7 +10,8 @@ export type HeroAsset =
       type: "gallery";
       // `key` matches caseStudyData.{slug}.gallery.{key} in messages.
       images: Array<{ src: string; key: string }>;
-    };
+    }
+  | { type: "iframe"; src: string; title: string; aspectRatio?: string };
 
 export interface CaseStudy {
   slug: string;
@@ -51,8 +52,10 @@ export const caseStudies: CaseStudy[] = [
     year: "2026",
     thumbnail: "/images/case-studies/bulk-services-cowlendar/thumb-bulk.webp",
     heroAsset: {
-      type: "image",
-      src: "/images/case-studies/bulk-services-cowlendar.png",
+      type: "iframe",
+      src: "https://bulk-services.briansalazar.dev",
+      title: "Bulk Services prototype — Cowlendar 5-step wizard",
+      aspectRatio: "4 / 3",
     },
     stack: ["Next.js 14", "TypeScript", "Shopify Admin API", "Tailwind"],
     hasCollaborators: true,

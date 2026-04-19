@@ -6,6 +6,7 @@ import { Link } from "@/i18n/navigation";
 import { caseStudies, type CaseStudy } from "@/content/case-studies";
 import { HeroAssetPlaceholder } from "@/components/HeroAssetPlaceholder";
 import { HeroGallery } from "@/components/HeroGallery";
+import HeroIframe from "@/components/HeroIframe";
 import { routing } from "@/i18n/routing";
 import { cn, focusRing } from "@/lib/utils";
 
@@ -89,6 +90,16 @@ function HeroAsset({
 
   if (asset.type === "gallery") {
     return <HeroGallery slug={slug} images={asset.images} />;
+  }
+
+  if (asset.type === "iframe") {
+    return (
+      <HeroIframe
+        src={asset.src}
+        title={asset.title}
+        aspectRatio={asset.aspectRatio}
+      />
+    );
   }
 
   // type === "image" / "video" — TODO: add hero asset (real assets arrive later)

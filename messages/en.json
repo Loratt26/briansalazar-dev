@@ -62,6 +62,11 @@
     "nextCaseStudy": "Next case study",
     "iframeTitle": "Case study video"
   },
+  "HeroIframe": {
+    "loading": "Loading live prototype…",
+    "error": "Prototype unavailable. Try refreshing the page.",
+    "hint": "Live prototype · Click anywhere to interact"
+  },
   "HeroGallery": {
     "tablistAriaLabel": "Demo store screens",
     "hint": "Click to zoom · Scroll to explore",

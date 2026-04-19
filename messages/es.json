@@ -62,6 +62,11 @@
     "nextCaseStudy": "Siguiente caso",
     "iframeTitle": "Video del caso de estudio"
   },
+  "HeroIframe": {
+    "loading": "Cargando prototipo en vivo…",
+    "error": "Prototipo no disponible. Intenta refrescar la página.",
+    "hint": "Prototipo en vivo · Haz clic para interactuar"
+  },
   "HeroGallery": {
     "tablistAriaLabel": "Pantallas de la tienda demo",
     "hint": "Click para ampliar · Scroll para explorar",
