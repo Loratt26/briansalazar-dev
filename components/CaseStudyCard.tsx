@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { ArrowUpRight, ImageIcon } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { HeroAssetPlaceholder } from "@/components/HeroAssetPlaceholder";
 import type { CaseStudy } from "@/content/case-studies";
 
 interface CaseStudyCardProps {
@@ -28,13 +29,7 @@ export function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
 
         <p className="mt-2 truncate text-sm text-muted">{oneLiner}</p>
 
-        <div className="mt-6 aspect-video w-full rounded-md border border-border bg-gradient-to-br from-white/[0.03] to-white/[0.01] flex items-center justify-center">
-          <ImageIcon
-            className="h-6 w-6 text-muted-strong/60"
-            strokeWidth={1.5}
-            aria-hidden
-          />
-        </div>
+        <HeroAssetPlaceholder className="mt-6" />
 
         <ArrowUpRight
           aria-hidden
