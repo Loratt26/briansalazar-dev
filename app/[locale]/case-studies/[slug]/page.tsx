@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { setRequestLocale } from "next-intl/server";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { caseStudies, type CaseStudy } from "@/content/case-studies";
 import { HeroAssetPlaceholder } from "@/components/HeroAssetPlaceholder";
@@ -8,7 +9,7 @@ import { HeroGallery } from "@/components/HeroGallery";
 import { cn, focusRing } from "@/lib/utils";
 
 interface PageProps {
-  params: { slug: string };
+  params: { locale: string; slug: string };
 }
 
 export function generateStaticParams() {
@@ -89,6 +90,7 @@ function MetaRow({ label, children }: { label: string; children: React.ReactNode
 }
 
 export default function CaseStudyPage({ params }: PageProps) {
+  setRequestLocale(params.locale);
   const cs = caseStudies.find((c) => c.slug === params.slug);
   if (!cs) notFound();
 
