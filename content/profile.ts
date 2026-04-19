@@ -5,7 +5,6 @@ export const profile = {
   role: "Head of Support at Penida.io",
   tagline:
     "Bridge between customers and product. Building prototypes when feedback demands it.",
-  // TODO: verify email before launch
   email: "hello@briansalazar.dev",
   linkedin: "https://www.linkedin.com/in/briansalazarhos/",
 } as const;

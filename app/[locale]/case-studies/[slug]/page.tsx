@@ -45,12 +45,16 @@ export async function generateMetadata({
       title: `${title} — Brian Salazar`,
       description: oneLiner,
       type: "article",
+      url: `https://briansalazar.dev/${params.locale}${path}`,
+      siteName: "Brian Salazar",
+      images: ["/images/og-image.png"],
       locale: params.locale === "es" ? "es_ES" : "en_US",
     },
     twitter: {
       card: "summary_large_image",
       title: `${title} — Brian Salazar`,
       description: oneLiner,
+      images: ["/images/og-image.png"],
     },
   };
 }
