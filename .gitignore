@@ -34,6 +34,10 @@ yarn-error.log*
 # Claude Code runtime
 .claude/
 
+# archives — never commit source bundles
+*.zip
+*.rar
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
