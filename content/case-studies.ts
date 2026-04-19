@@ -46,27 +46,27 @@ export const caseStudies: CaseStudy[] = [
       type: "gallery",
       images: [
         {
-          src: "/images/case-studies/shopify-demo-store/home.png",
+          src: "/images/case-studies/shopify-demo-store/home.webp",
           alt: "Subscribee App home page",
           label: "Home",
         },
         {
-          src: "/images/case-studies/shopify-demo-store/how-it-works.png",
+          src: "/images/case-studies/shopify-demo-store/how-it-works.webp",
           alt: "How It Works section",
           label: "How It Works",
         },
         {
-          src: "/images/case-studies/shopify-demo-store/all-offers.png",
+          src: "/images/case-studies/shopify-demo-store/all-offers.webp",
           alt: "All subscription and bundle offers",
           label: "All Offers",
         },
         {
-          src: "/images/case-studies/shopify-demo-store/bundle-offer.png",
+          src: "/images/case-studies/shopify-demo-store/bundle-offer.webp",
           alt: "Bundle offer detail page",
           label: "Bundle Offer",
         },
         {
-          src: "/images/case-studies/shopify-demo-store/subscription-offer.png",
+          src: "/images/case-studies/shopify-demo-store/subscription-offer.webp",
           alt: "Subscription offer detail page",
           label: "Subscription Offer",
         },
